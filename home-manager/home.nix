@@ -26,8 +26,8 @@
       ll = "ls -l";
       # update = "sudo nixos-rebuild switch";
       switch = "home-manager switch";
-      update = ".nixconfig/update.sh";
-      uninstall = ".nixconfig/uninstall.sh";
+      update = ".nixconfig/tools/update.sh";
+      uninstall = ".nixconfig/tools/uninstall.sh";
     };
     sessionVariables = {
      EDITOR = "vim";
