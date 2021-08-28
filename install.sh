@@ -16,5 +16,5 @@ nix-shell '<home-manager>' -A install
 nix-shell -p git --run "git clone -c core.eol=lf -c core.autocrlf=false -c fsck.zeroPaddedFilemode=ignore -c fetch.fsck.zeroPaddedFilemode=ignore -c receive.fsck.zeroPaddedFilemode=ignore --depth=1 https://github.com/lanlyhs/nix.git $HOME/.nixconfig"
 
 # Reload
-cp -rf $HOME/.nixconfig/home-manager/ .config/nixpkgs/
+cp -rf $HOME/.nixconfig/home-manager/* .config/nixpkgs/
 home-manager switch
