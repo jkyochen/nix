@@ -18,3 +18,7 @@ nix-shell -p git --run "git clone -c core.eol=lf -c core.autocrlf=false -c fsck.
 # Reload
 cp -rf $HOME/.nixconfig/home-manager/* .config/nixpkgs/
 home-manager switch
+
+# Set Default Shell Zsh
+command -v zsh | sudo tee -a /etc/shells
+sudo chsh -s "$(command -v zsh)" "${USER}"
