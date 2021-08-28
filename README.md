@@ -6,6 +6,13 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/lanlyhs/nix/main/tools/install.sh)"
 ```
 
+### Verify
+
+```sh
+➜  ~ hello
+Hello, world!
+```
+
 ## Updating
 
 ```sh
