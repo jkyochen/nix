@@ -7,6 +7,8 @@ set -e
 curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
 # curl -L https://nixos.org/nix/install | sh -s -- --daemon
 
+. $HOME/.nix-profile/etc/profile.d/nix.sh
+
 # Install home-manager
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
