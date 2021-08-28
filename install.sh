@@ -12,7 +12,6 @@ BRANCH=${BRANCH:-main}
 # https://nixos.org/manual/nix/stable/#chap-installation
 curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
 # curl -L https://nixos.org/nix/install | sh -s -- --daemon
-source .bashrc
 
 # Install home-manager
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
