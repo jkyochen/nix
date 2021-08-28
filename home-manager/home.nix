@@ -25,7 +25,9 @@
     shellAliases = {
       ll = "ls -l";
       # update = "sudo nixos-rebuild switch";
-      update = "home-manager switch";
+      switch = "home-manager switch";
+      update = ".nixconfig/update.sh";
+      uninstall = ".nixconfig/uninstall.sh";
     };
     sessionVariables = {
      EDITOR = "vim";
@@ -75,6 +77,7 @@
     pkgs.git
     pkgs.vim
     pkgs.curl
+    pkgs.wget
     pkgs.direnv
     pkgs.httpie
     pkgs.jq

@@ -9,11 +9,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/lanlyhs/nix/main/install.s
 ## Updating
 
 ```sh
+update
+OR
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/lanlyhs/nix/main/update.sh)"
 ```
 
 ## Uninstalling
 
 ```sh
+uninstall
+OR
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/lanlyhs/nix/main/uninstall.sh)"
 ```
