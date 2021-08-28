@@ -2,12 +2,6 @@
 
 set -e
 
-# Default settings
-NixConfig=${NixConfig:-~/.nixconfig}
-REPO=${REPO:-lanlyhs/nix}
-REMOTE=${REMOTE:-https://github.com/${REPO}.git}
-BRANCH=${BRANCH:-main}
-
 # Install nix (Single User Installation)
 # https://nixos.org/manual/nix/stable/#chap-installation
 curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
@@ -19,17 +13,8 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 # Clone config
-nix-shell -p git
-git clone -c core.eol=lf -c core.autocrlf=false \
-  -c fsck.zeroPaddedFilemode=ignore \
-  -c fetch.fsck.zeroPaddedFilemode=ignore \
-  -c receive.fsck.zeroPaddedFilemode=ignore \
-  --depth=1 --branch "$BRANCH" "$REMOTE" "$NixConfig" || {
-  fmt_error "git clone of nix repo failed"
-  exit 1
-}
-exit
+nix-shell -p git --run "git clone -c core.eol=lf -c core.autocrlf=false -c fsck.zeroPaddedFilemode=ignore -c fetch.fsck.zeroPaddedFilemode=ignore -c receive.fsck.zeroPaddedFilemode=ignore --depth=1 https://github.com/lanlyhs/nix.git $HOME/.nixconfig"
 
 # Reload
-cp -rf $NixConfig/home-manager/ .config/nixpkgs/
+cp -rf $HOME/.nixconfig/home-manager/ .config/nixpkgs/
 home-manager switch

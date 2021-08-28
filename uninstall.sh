@@ -2,13 +2,14 @@
 
 set -e
 
-home-manager uninstall
+yes | home-manager uninstall
 
 rm -rf $HOME/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs}
 sudo rm -rf /nix
 
-for i in $(seq 1 32); do sudo userdel -f nixbld$i; done
-sudo groupdel nixbld
+# For Multi-User install
+# for i in $(seq 1 32); do sudo userdel -f nixbld$i; done
+# sudo groupdel nixbld
 
 # macOS
 # for num in {1..32}; do sudo dscl . -delete /Users/nixbld$num; done
@@ -17,3 +18,5 @@ sudo groupdel nixbld
 # https://gist.github.com/expelledboy/c00aebb004b178cf78b2c9b344526ff6
 # https://gist.github.com/chriselsner/3ebe962a4c4bd1f14d39897fc5619732
 # https://github.com/NixOS/nix/issues/1402
+
+rm -rf $HOME/.nixconfig/
