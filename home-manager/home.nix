@@ -94,7 +94,7 @@
     pkgs.nodejs
     pkgs.go
     pkgs.jdk
-    pkgs.python
+    pkgs.python39
     pkgs.ruby
   ];
 
