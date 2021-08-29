@@ -43,3 +43,4 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/lanlyhs/nix/main/tools/uni
 2. Support mulit env for some special tools.
 3. Migrate pkg.md package.
 4. Migrate macOS Gui software from brew cask.
+5. Distinguish Linux and macOS special pkg like mas,m-cli.
