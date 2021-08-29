@@ -1,5 +1,9 @@
 # Nix Config
 
+> Nix is for Un*x Package manager.
+
+> Test in ArchLinux / Ubuntu / macOS Big Sur.
+
 ## Install
 
 ```sh
