@@ -1,6 +1,15 @@
 { config, pkgs, ... }:
 
-{
+# machine
+# ref https://github.com/douglasduteil/dotfiles/blob/master/nixpkgs/home.nix
+# machine = import "${homeDir}/.config/nixpkgs/machine.nix";
+# isMacOS = machine.operatingSystem == "Darwin";
+# ref https://www.reddit.com/r/NixOS/comments/ae9q01/how_to_os_from_inside_a_nix_file/
+
+let
+  extraNodePackages = import ./node/default.nix { };
+in {
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -30,33 +39,33 @@
       uninstall = ".nixconfig/tools/uninstall.sh";
     };
     sessionVariables = {
-     EDITOR = "vim";
+      EDITOR = "nvim";
     };
-    enableAutosuggestions =  true;
-    enableCompletion =  true;
-    enableSyntaxHighlighting =  true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
     autocd = true;
     completionInit = "autoload -U compinit && compinit";
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "z" ];
+      plugins = [ "git" ];
       theme = "robbyrussell";
     };
     plugins = [
-     {
-       name = "zsh-nix-shell";
-       file = "nix-shell.plugin.zsh";
-       src = pkgs.fetchFromGitHub {
-         owner = "chisui";
-         repo = "zsh-nix-shell";
-         rev = "v0.4.0";
-         sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
-       };
-     }
-   ];
-   initExtra = ''
-   if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-   '';
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.4.0";
+          sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
+        };
+      }
+    ];
+    initExtra = ''
+      if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+    '';
   };
 
   programs.fzf = {
@@ -65,40 +74,147 @@
     enableZshIntegration = true;
   };
 
-  programs.tmux = {
+  # programs.tmux = {
+  #   enable = true;
+  # };
+
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.vim = {
+    enable = true;
+  };
+  programs.neovim = {
+    enable = true;
+  };
+  programs.emacs = {
     enable = true;
   };
 
-  home.packages = [
-    pkgs.hello
-    pkgs.which
-    pkgs.git
-    pkgs.htop
-    pkgs.git
-    pkgs.vim
-    pkgs.curl
-    pkgs.wget
-    pkgs.httpie
-    pkgs.jq
-    pkgs.less
-    pkgs.figlet
-    pkgs.lsof
-    pkgs.tree
-    pkgs.pstree
-    pkgs.jq
-    pkgs.ripgrep
+  programs.go = {
+    enable = true;
+    goPath = "go";
+  };
 
-    pkgs.neofetch
+  programs.command-not-found.enable = true;
 
-    pkgs.tldr
-    pkgs.cheat
+  # https://github.com/ibraheemdev/modern-unix
+  # https://github.com/alebcay/awesome-shell
+  home.packages = with pkgs; [
+
+    hello
+    which
+    man
+
+    nix-index
+    nixpkgs-fmt
+    nix-info
+
+    bash
+    automake
+    cmake
+
+    gping
+    htop
+    glances
+
+    curl
+    wget
+
+    httpie
+    jq
+    dogdns
+    arp-scan
+    httpstat
+    mtr
+    tcpdump
+    wireshark-cli
+    nmap
+    netcat
+    wrk
+    junkie
+    grpcurl
+    mitmproxy
+    speedtest-cli
+
+    mkcert
+
+    # Linux perf
+    stress
+    stress-ng
+    fio
+
+    docker
+    docker-compose
+    vagrant
+
+    fd
+    procs
+    nnn
+
+    less
+    figlet
+    lsof
+
+    tree
+    pstree
+    jq
+
+    ripgrep
+    exa
+    bat
+    sl
+
+    neofetch
+    trash-cli
+    peco
+
+    # compiler
+    gcc
+    llvm
+
+    # git
+    git-repo-updater
+    hub
+    gh
+    # git-ignore
+    git-quick-stats
+    git-extras
+
+    # terminal
+    asciinema
+
+    tldr
+    cheat
+
+    # tools
+    taskwarrior
+    pbgopy
+    translate-shell
+    xsv
+
+    # password
+    pass
+    bitwarden-cli
 
     # Programming Language
-    pkgs.nodejs
-    pkgs.go
-    pkgs.jdk
-    pkgs.python39
-    pkgs.ruby
+    nodejs
+    go
+    jdk
+    python39
+    ruby
+    rustup
+
+    # PL package
+    extraNodePackages.fanyi
+
   ];
 
 }
