@@ -20,3 +20,5 @@ sudo rm -rf /nix
 # https://github.com/NixOS/nix/issues/1402
 
 rm -rf $HOME/.nixconfig/
+
+sudo chsh -s "$(command -v bash)" "${USER}"
