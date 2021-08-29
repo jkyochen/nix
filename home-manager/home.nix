@@ -7,8 +7,8 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "$USER";
-  # no set $HOME, $HOME is /home/vagrant/.config/nixpkgs/home.nix
-  home.homeDirectory = "/home/$USER";
+  # can't set $HOME, $HOME is /home/vagrant/.config/nixpkgs/home.nix
+  home.homeDirectory = builtins.getEnv "HOME";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -36,10 +36,10 @@
     enableCompletion =  true;
     enableSyntaxHighlighting =  true;
     autocd = true;
-    completionInit =  "autoload -U compinit && compinit";
+    completionInit = "autoload -U compinit && compinit";
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ "git" "z" ];
       theme = "robbyrussell";
     };
     plugins = [
@@ -55,7 +55,7 @@
      }
    ];
    initExtra = ''
-   if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+   if [ -e ${home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh ]; then . ${home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
    '';
   };
 
@@ -78,7 +78,6 @@
     pkgs.vim
     pkgs.curl
     pkgs.wget
-    pkgs.direnv
     pkgs.httpie
     pkgs.jq
     pkgs.less
@@ -87,8 +86,12 @@
     pkgs.tree
     pkgs.pstree
     pkgs.jq
-    # pkgs.ctgas
     pkgs.ripgrep
+
+    pkgs.neofetch
+
+    pkgs.tldr
+    pkgs.cheat
 
     # Programming Language
     pkgs.nodejs
@@ -97,8 +100,5 @@
     pkgs.python39
     pkgs.ruby
   ];
-
-  # zsh enableCompletion
-  # environment.pathsToLink = [ "/share/zsh" ];
 
 }
