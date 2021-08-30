@@ -8,6 +8,21 @@
 
 let
   extraNodePackages = import ./node/default.nix { };
+
+  advance-touch = pkgs.python39.pkgs.buildPythonPackage rec {
+    pname = "advance-touch";
+    version = "1.0.2";
+    name = "${pname}-${version}";
+    src = pkgs.python39.pkgs.fetchPypi {
+      inherit pname version;
+      sha256 = "1ib7hvabq9wf7b7l8zgdw18aqv1ifc912vl9xp64j3d1zgh0b313";
+    };
+    doCheck = false;
+    propagatedBuildInputs = [
+      pkgs.python39.pkgs.click
+    ];
+  };
+
 in
 {
 
@@ -229,13 +244,14 @@ in
     nodejs
     go
     jdk
-    python39
     ruby
     rustup
 
     # PL package
     extraNodePackages.fanyi
-
+    (python39.withPackages (ps: with ps; [
+      advance-touch
+    ]))
   ];
 
 }
