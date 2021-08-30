@@ -20,7 +20,6 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 # Clone config
-if
 nix-shell -p git --run "git clone -c core.eol=lf -c core.autocrlf=false -c fsck.zeroPaddedFilemode=ignore -c fetch.fsck.zeroPaddedFilemode=ignore -c receive.fsck.zeroPaddedFilemode=ignore --depth=1 https://github.com/lanlyhs/nix.git $NIXCONFIG"
 
 # Reload
