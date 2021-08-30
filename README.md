@@ -39,8 +39,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/lanlyhs/nix/main/tools/uni
 
 ## Todo
 
-1. Test in windows WSL2.
-2. Support mulit env for some special tools.
-3. Migrate pkg.md package.
-4. Migrate macOS Gui software from brew cask.
-5. Distinguish Linux and macOS special pkg like mas,m-cli.
+- [ ] Test in windows WSL2.
+- [ ] Support mulit env for some special tools.
+- [ ] Migrate pkg.md package.
+- [ ] Migrate macOS Gui software from brew cask.
+- [ ] Distinguish Linux and macOS special pkg like mas,m-cli.
