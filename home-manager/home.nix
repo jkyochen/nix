@@ -52,8 +52,8 @@ in
       plugins = [
         "git"
         "vagrant"
-        "tmux"
-        "tmuxinator"
+        # "tmux"
+        # "tmuxinator"
       ];
       theme = "robbyrussell";
     };
