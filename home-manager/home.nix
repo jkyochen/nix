@@ -117,7 +117,12 @@ in
 
   programs.git = {
     enable = true;
-    delta.enable = true;
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = true;
+      };
+    };
   };
 
   programs.zoxide = {
