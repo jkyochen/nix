@@ -32,3 +32,5 @@ if ! grep -Fxq "$(which zsh)" /etc/shells; then
 fi
 
 sudo chsh -s "$(command -v zsh)" "${USER}"
+
+zsh
