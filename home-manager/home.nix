@@ -8,7 +8,8 @@
 
 let
   extraNodePackages = import ./node/default.nix { };
-in {
+in
+{
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -48,7 +49,12 @@ in {
     completionInit = "autoload -U compinit && compinit";
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [
+        "git"
+        "vagrant"
+        "tmux"
+        "tmuxinator"
+      ];
       theme = "robbyrussell";
     };
     plugins = [
@@ -62,6 +68,16 @@ in {
           sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
         };
       }
+      # {
+      #   name = "enhancd";
+      #   file = "init.sh";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "b4b4r07";
+      #     repo = "enhancd";
+      #     rev = "v2.2.4";
+      #     sha256 = "1smskx9vkx78yhwspjq2c5r5swh9fc5xxa40ib4753f00wk4dwpp";
+      #   };
+      # }
     ];
     initExtra = ''
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
@@ -74,9 +90,14 @@ in {
     enableZshIntegration = true;
   };
 
-  # programs.tmux = {
-  #   enable = true;
-  # };
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    newSession = true;
+    # tmuxinator = {
+    #   enable = true;
+    # };
+  };
 
   programs.git = {
     enable = true;
