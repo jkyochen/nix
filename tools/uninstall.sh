@@ -21,4 +21,4 @@ sudo rm -rf /nix
 
 rm -rf $HOME/.nixconfig/
 
-sudo chsh -s "$(command -v bash)" "${USER}"
+sudo chsh -s "/bin/bash" "${USER}"
