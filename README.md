@@ -7,6 +7,7 @@
 ## Before
 
 1. Need proxy in China， because of `https://cache.nixos.org/` is so slow. May be can try [tuna mirrors](https://mirrors.tuna.tsinghua.edu.cn/help/nix/).
+2. Run in non-root user.
 
 ## Install
 
