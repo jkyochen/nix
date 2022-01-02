@@ -8,7 +8,7 @@ NIXCONFIG=${NIXCONFIG:-"$HOME/.nixconfig"}
 # Install nix (Single User Installation)
 # https://nixos.org/manual/nix/stable/#chap-installation
 # curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --no-daemon
+sh -c "$(curl -L https://nixos.org/nix/install)" --darwin-use-unencrypted-nix-store-volume --no-daemon
 
 # curl -L https://nixos.org/nix/install | sh -s -- --daemon
 
