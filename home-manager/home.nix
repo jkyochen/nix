@@ -261,6 +261,7 @@ in
 
     # PL package
     extraNodePackages.fanyi
+    extraNodePackages.nrm
     (python39.withPackages (ps: with ps; [
       advance-touch
     ]))
