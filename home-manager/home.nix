@@ -248,9 +248,15 @@ in
 
     # Programming Language
     nodejs
+    nodePackages.yarn
+
+    youtube-dl
+
     go
     jdk
     ruby
+    jekyll
+
     rustup
 
     # PL package
