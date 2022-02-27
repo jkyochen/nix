@@ -56,7 +56,7 @@ in
       uninstall = ".nixconfig/tools/uninstall.sh";
     };
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "vim";
     };
     enableAutosuggestions = true;
     enableCompletion = true;
