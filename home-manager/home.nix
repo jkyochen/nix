@@ -62,7 +62,10 @@ in
     enableCompletion = true;
     enableSyntaxHighlighting = true;
     autocd = true;
-    completionInit = "autoload -U compinit && compinit";
+    completionInit = ''
+      autoload -U compinit && compinit
+      npm config set prefix '$HOME/mutable_node_modules'
+    '';
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -96,6 +99,8 @@ in
       # }
     ];
     initExtra = ''
+      export PATH=$HOME/mutable_node_modules/bin/:$PATH;
+
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
     '';
   };
