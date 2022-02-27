@@ -109,7 +109,7 @@ in
       # }
     ];
     initExtra = ''
-      export PATH=$HOME/mutable_node_modules/bin/:$PATH;
+      export PATH=$HOME/mutable_node_modules/bin/:/usr/local/bin/:$PATH;
 
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
     '';
