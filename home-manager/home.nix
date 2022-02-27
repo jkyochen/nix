@@ -109,16 +109,41 @@ in
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+    # tmux.enableShellIntegration = true;
   };
 
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    newSession = true;
-    # tmuxinator = {
-    #   enable = true;
-    # };
-  };
+  # programs.tmux = {
+  #   enable = true;
+  #   shell = "${pkgs.zsh}/bin/zsh";
+  #   terminal = "screen-256color";
+  #   sensibleOnTop = true;
+  #   keyMode = "vi";
+  #   extraConfig = ''
+  #     set -g mouse on
+  #     set -g @themepack 'block/blue'
+  #   '';
+  #   plugins = with pkgs; [
+  #     tmuxPlugins.pain-control
+  #     tmuxPlugins.yank
+  #     tmuxPlugins.resurrect
+  #     tmuxPlugins.copycat
+  #     tmuxPlugins.vim-tmux-navigator
+  #   ];
+
+  #   # copycat
+  #   # fpp
+  #   # logging
+  #   # open
+  #   # pain-control
+  #   # sessionist
+  #   # sidebar
+  #   # urlview
+  #   # tmux-fzf
+  #   # yank
+  #   # sysstat
+  #   # sensible
+
+  # };
 
   programs.git = {
     enable = true;
