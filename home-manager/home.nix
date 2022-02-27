@@ -224,7 +224,6 @@ in
 
     # git
     git-repo-updater
-    hub
     gh
     # git-ignore
     git-quick-stats
@@ -246,25 +245,38 @@ in
     pass
     bitwarden-cli
 
+    openvpn
+
     # Programming Language
     nodejs
+    # nodejs-16_x
     nodePackages.yarn
+    # nodePackages.yo
 
     youtube-dl
 
     go
-    jdk
+
+    # jdk
+    jdk11
+
     ruby
     jekyll
 
     rustup
 
-    # PL package
+    # language package
     extraNodePackages.fanyi
     extraNodePackages.nrm
     (python39.withPackages (ps: with ps; [
       advance-touch
     ]))
+
+    # software
+    # vscode
+    # electrum
+    # qutebrowser
+
   ];
 
 }
