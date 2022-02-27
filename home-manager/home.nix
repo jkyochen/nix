@@ -70,7 +70,7 @@ in
       enable = true;
       plugins = [
         "git"
-        "vagrant"
+        # "vagrant"
         # "tmux"
         # "tmuxinator"
       ];
@@ -84,6 +84,16 @@ in
           owner = "chisui";
           repo = "zsh-nix-shell";
           rev = "v0.4.0";
+          sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
+        };
+      }
+      {
+        name = "nix-zsh-completions";
+        file = "nix-zsh-completions.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "spwhitt";
+          repo = "nix-zsh-completions";
+          rev = "v0.4.4";
           sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
         };
       }
@@ -189,10 +199,6 @@ in
     nixpkgs-fmt
     nix-info
 
-    bash
-    automake
-    cmake
-
     gping
     htop
     glances
@@ -200,32 +206,32 @@ in
     curl
     wget
 
-    httpie
-    jq
-    dogdns
-    arp-scan
-    httpstat
-    mtr
-    tcpdump
-    wireshark-cli
-    nmap
-    netcat
-    wrk
-    junkie
-    grpcurl
-    mitmproxy
-    speedtest-cli
+    # httpie
+    # jq
+    # dogdns
+    # arp-scan
+    # httpstat
+    # mtr
+    # tcpdump
+    # wireshark-cli
+    # nmap
+    # netcat
+    # wrk
+    # junkie
+    # grpcurl
+    # mitmproxy
+    # speedtest-cli
 
-    mkcert
+    # mkcert
 
-    # Linux perf
-    stress
-    stress-ng
-    fio
+    # # Linux perf
+    # stress
+    # stress-ng
+    # fio
 
-    docker
-    docker-compose
-    vagrant
+    # docker
+    # docker-compose
+    # vagrant
 
     fd
     procs
