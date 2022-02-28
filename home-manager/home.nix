@@ -283,13 +283,14 @@ in
 
     openvpn
 
+    youtube-dl
+
     # Programming Language
     nodejs
-    # nodejs-16_x
+    nodePackages.nrm
+    nodePackages.tiddlywiki
     nodePackages.yarn
-    # nodePackages.yo
-
-    youtube-dl
+    nodePackages.yo
 
     go
 
