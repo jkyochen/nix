@@ -216,7 +216,7 @@ in
     # wireshark-cli
     # nmap
     # netcat
-    # wrk
+    wrk
     # junkie
     # grpcurl
     # mitmproxy
@@ -254,6 +254,8 @@ in
     trash-cli
     peco
 
+    pandoc
+
     # compiler
     gcc
     llvm
@@ -272,7 +274,6 @@ in
     cheat
 
     # tools
-    taskwarrior
     pbgopy
     translate-shell
     xsv
@@ -294,8 +295,9 @@ in
 
     go
 
-    # jdk
-    jdk11
+    jdk
+    maven
+    gradle
 
     ruby
     jekyll
