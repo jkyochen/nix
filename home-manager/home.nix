@@ -118,9 +118,8 @@ in
       alias rmdir='rmdirtrash'
       alias sudo='sudo '
 
-      alias format='prettier --write "./**/*.{ts,tsx,js,jsx,json,md,css}"
-                    prettier --print-width=140 --tab-width=4 --write "**/*.java"
-      '
+      alias format='prettier --write "./**/*.{ts,tsx,js,jsx,json,md,css}"'
+      alias format-java='prettier --print-width=140 --tab-width=4 --write "**/*.java"'
 
     '';
   };
