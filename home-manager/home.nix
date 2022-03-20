@@ -298,6 +298,8 @@ in
     nodePackages.yarn
     nodePackages.yo
 
+    nodePackages.prettier
+
     go
 
     jdk
