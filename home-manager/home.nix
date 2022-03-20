@@ -112,6 +112,11 @@ in
       export PATH=$HOME/mutable_node_modules/bin/:/usr/local/bin/:$PATH;
 
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+      alias rm='rmtrash'
+      alias rmdir='rmdirtrash'
+      alias sudo='sudo '
+
     '';
   };
 
@@ -251,7 +256,7 @@ in
     sl
 
     neofetch
-    trash-cli
+    rmtrash
     peco
 
     pandoc
