@@ -297,6 +297,7 @@ in
     nodePackages.tiddlywiki
     nodePackages.yarn
     nodePackages.yo
+    nodePackages.degit
 
     nodePackages.prettier
 
