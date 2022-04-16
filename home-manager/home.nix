@@ -289,7 +289,8 @@ in
 
     openvpn
 
-    youtube-dl
+    # youtube-dl
+    yt-dlp
 
     # Programming Language
     nodejs
