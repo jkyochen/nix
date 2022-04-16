@@ -49,11 +49,7 @@ in
     enable = true;
     shellAliases = {
       ll = "ls -l";
-      s = "subl .";
-      # update = "sudo nixos-rebuild switch";
-      switch = "home-manager switch";
-      update = ".nixconfig/tools/update.sh";
-      uninstall = ".nixconfig/tools/uninstall.sh";
+      nixupdate = ".nixconfig/tools/update.sh";
     };
     sessionVariables = {
       EDITOR = "vim";
