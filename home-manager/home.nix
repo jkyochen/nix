@@ -107,8 +107,15 @@ in
     initExtra = ''
       export PATH=$HOME/mutable_node_modules/bin/:/usr/local/bin/:$PATH;
 
+      # Nix
+      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      fi
+      # End Nix
+
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh;
       fi # added by Nix installer
+
     '';
   };
 

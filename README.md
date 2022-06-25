@@ -19,7 +19,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/lanlyhs/nix/main/tools/ins
 
 https://github.com/NixOS/nix/issues/3616
 
-```nix
+```sh
 # Nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
