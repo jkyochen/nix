@@ -109,10 +109,6 @@ in
 
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh;
       fi # added by Nix installer
-
-      alias format='prettier --write "./**/*.{ts,tsx,js,jsx,json,md,css}"'
-      alias format-java='prettier --print-width=140 --tab-width=4 --write "**/*.java"'
-
     '';
   };
 
@@ -229,6 +225,7 @@ in
     # stress
     # stress-ng
     # fio
+    k6
 
     # docker
     # docker-compose
@@ -260,6 +257,8 @@ in
     # compiler
     gcc
     llvm
+    coreutils
+    gettext
 
     # git
     git-repo-updater
@@ -292,23 +291,16 @@ in
     nodejs
     nodePackages.nrm
     nodePackages.tiddlywiki
-    nodePackages.yarn
-    nodePackages.yo
-    nodePackages.degit
-
-    nodePackages.prettier
 
     go
+    hugo
 
     jdk
     maven
     gradle
 
-    ruby
-    jekyll
-
     rustup
-
+    ruby
     (python39.withPackages (ps: with ps; [
       advance-touch
     ]))
