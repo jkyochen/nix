@@ -7,7 +7,6 @@
 # ref https://www.reddit.com/r/NixOS/comments/ae9q01/how_to_os_from_inside_a_nix_file/
 
 let
-  extraNodePackages = import ./node/default.nix { };
 
   advance-touch = pkgs.python39.pkgs.buildPythonPackage rec {
     pname = "advance-touch";
@@ -203,13 +202,13 @@ in
     nixpkgs-fmt
     nix-info
 
-    gping
     htop
-    glances
+    # glances
 
     curl
     wget
 
+    # gping
     # httpie
     # jq
     # dogdns
@@ -220,7 +219,7 @@ in
     # wireshark-cli
     # nmap
     # netcat
-    wrk
+    # wrk
     # junkie
     # grpcurl
     # mitmproxy
@@ -232,40 +231,40 @@ in
     # stress
     # stress-ng
     # fio
-    k6
+    # k6
 
     # docker
     # docker-compose
     # vagrant
 
-    fd
-    procs
-    nnn
+    # fd
+    # procs
+    # nnn
 
-    less
-    figlet
-    lsof
+    # less
+    # figlet
+    # lsof
 
-    tree
-    pstree
-    jq
+    # tree
+    # pstree
+    # jq
 
-    ripgrep
-    exa
-    bat
-    sl
+    # ripgrep
+    # exa
+    # bat
+    # sl
 
-    neofetch
-    trash-cli
-    peco
+    # neofetch
+    # trash-cli
+    # peco
 
-    pandoc
+    # pandoc
 
-    # compiler
-    gcc
-    llvm
-    coreutils
-    gettext
+    # # compiler
+    # gcc
+    # llvm
+    # coreutils
+    # gettext
 
     # git
     git-repo-updater
@@ -275,19 +274,19 @@ in
     git-extras
 
     # terminal
-    asciinema
+    # asciinema
 
     tldr
     cheat
 
-    # tools
-    pbgopy
-    translate-shell
-    xsv
+    # # tools
+    # pbgopy
+    # translate-shell
+    # xsv
 
-    # password
-    pass
-    bitwarden-cli
+    # # password
+    # pass
+    # bitwarden-cli
 
     openvpn
 
@@ -296,18 +295,12 @@ in
 
     # Programming Language
     nodejs
-    nodePackages.nrm
-    nodePackages.tiddlywiki
 
     go
-    hugo
-
-    jdk
-    maven
-    gradle
-
-    rustup
-    ruby
+    # # hugo
+    # jdk
+    # rustup
+    # ruby
     (python39.withPackages (ps: with ps; [
       advance-touch
     ]))
